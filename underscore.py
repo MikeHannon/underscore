@@ -1,12 +1,9 @@
 class underscore(object):
-    def map(self, myLambda): #callback
-        #_.map(lambda x: x + " world") if we invoke _.map as seen on the left
-        #1) myLambda becomes lambda x: x + " world"
-        print (myLambda("hello"))
-        #2) myLambda expects a variable to replace x
-        #3) we invoke myLamda passing it "hello"
-        #4) x becomes hello and myLambda at this point looks like: lambda "hello": "hello" + " world"
-        #5) closing of the ) finalizes the invocation of the function.  print ('hello world')
+    def map(self, myList, myLambda): #callback
+        returnList = []
+        for element in myList:
+            returnList.append(myLambda(element))
+        return returnList
 
     def find(self):
         pass
@@ -23,5 +20,7 @@ print "working"
 # def myFunction():
 #   do something
 # myFunction = lambda x: do something
+# lambda x,y,z : x + y + z
 
 _ = underscore()
+print _.map([1,2,3],lambda x : x*x)
